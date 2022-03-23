@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Data Type - Objects</h1>
+    </header>
+    <main>
+        <p>Object is the most important data-type and forms the building block for modern JavaScript.</p>
+        <p>The <b>object</b> type is special. All other types are called “primitive” because their values can contain only a single thing (be it a string or a number or whatever). In contrast, objects are used to store collections of data and more complex entities.
+
+        </p>
+        <p>What I'm going to let you know for now is that objects in their simplest forms are used to group variables.
+
+            For example, we can create a variable of name, and age:</p>
+        <pre>
+            <code>
+                const name = 'John'
+                const age = 25;
+            </code>
+        </pre>
+        <p>These two variables in the current state are in no way related on to another.<br />
+
+            We can create an object called person and put them together:</p>
+        
+        <pre>
+            <code>
+                const person = {
+                    name: 'John',
+                    age: 25,
+                } 
+            </code>
+        </pre>
+        <p>Now we know that both name and age belong to the same entity, the person. That is an object. As you can see, we declare it the same as all other variables and then put curly brackets inside of which goes the data.<br />
+
+            The one last thing that we can mention is that we can now extract specific values from that object using the dot notation:</p>
+        <pre>
+            person.name
+            person.age
+        </pre>
+        <p>There are many other kinds of objects in JavaScript:</p>
+        <ul>
+            <li><strong>Array</strong> to store ordered data collections,</li>
+            <li><strong>Date</strong> to store the information about the date and time,</li>
+            <li><strong>Error</strong> to store the information about an error.</li>
+            …And so on....
+        </ul>
+        <p>Sometimes people say something like “Array type” or “Date type”, but formally they are not types of their own, but belong to a single “object” data type. And they extend it in various ways.</p>
+    </main>
+    <footer></footer>
+    <script src="./objects.js"></script>
+</body>
+</html>
