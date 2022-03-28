@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Logic & Control Flow</h1>
+    </header>
+    <main>
+        <section>
+            <h2>If Statement</h2>
+            <pre>
+                <code>
+                    const age = 18;
+
+                    if(age >= 18) {
+                        console.log('You may enter, welcome!');
+                    } else if(age === 18) {
+                            console.log('You just turned 18, welcome!');
+                    } else {
+                        console.log('Go away!');
+                    }
+                </code>
+            </pre>
+            <p>In every programming language, we have something known as an if statement.<br/>
+                If statement is consisted of a condition that is evaluated to either true or false and of a block of code. If the condition is evaluated to true, then the code inside of the block will run, otherwise, it's going to be skipped. It's that simple. Let's explore it in an example:
+                Let's think of where if statements appear in real life. They often appear in terms of some rules or laws.        
+                
+            </p>
+            <i>Let's say that there's a night club that only allows people over the age of 18 to enter.</i>
+            <pre>
+                <code>
+                    const age = 18;
+
+                    if(age >= 18) {
+                        console.log('You may enter, welcome!');
+                    }
+                </code>
+            </pre>
+            <p>If statements can also have an else if and else statements. To continue with our example:</p>
+            <pre>
+                <code>
+                    const age = 18;
+
+                    if(age >= 18) {
+                        console.log('You may enter, welcome!');
+                    } else if(age === 18) {
+                            console.log('You just turned 18, welcome!');
+                    }
+                </code>
+            </pre>
+            <i>But what if the person is younger than 18? We currently aren't handling that case. That's where the else statement comes in handy. We implement it like this:</i>
+            <pre>
+                <code>
+                    const age = 18;
+
+                    if(age >= 18) {
+                        console.log('You may enter, welcome!');
+                    } else if(age === 18) {
+                            console.log('You just turned 18, welcome!');
+                    } else {
+                        console.log('Go away!');
+                    }
+                </code>
+            </pre>
+            <p>An else statement does not have a condition. If nothing is matched, a else is executed. Else does not need a condition.</p>
+        </section>
+        <section>
+            <h2>Truthy & Falsy Values</h2>
+            <p>Unlike other languages, true and false values are not limited to boolean data types and comparisons. It can have many other forms.<br />
+
+                In JavaScript, we also have something known as truthy values and falsy values.<br/>
+                Truthy expressions always evaluate to boolean true and falsy evaluate to boolean false.<br/>
+                Knowledge of truthy and falsy values in JavaScript is a must, if you don't know which values evaluate to truthy and which to falsy, you're going to have a hard time reading other people's code.<br />
+                When we say that a value is "truthy" in JavaScript, we don't just mean that the value is true. Rather, what we mean is that the value coerces to true when evaluated in a boolean context. Let's look at what that means.<br/>
+                The easiest way to learn truthy and falsy values is to memorise falsy values only. There are only six falsy values, all the other values are truthy.<br />
+
+                Let's explore the list of falsy values:
+                <b>FALSY</b>
+                <ol>
+                    <li>false</li>
+                    <li>0 (zero)</li>
+                    <li>"", '', `` (empty strings)</li>
+                    <li>null</li>
+                    <li>undefined</li>
+                    <li>NaN (not a number)</li>
+                </ol>
+                <strong>note : Empty array ([]) is not falsy</strong><br/>
+                <b>TRUTHY</b><br/>
+                <strong>Everything that is not FALSY</strong><br/>
+                <a href='https://www.sitepoint.com/javascript-truthy-falsy/' target="_blank">javascript-truthy-falsy</a>
+
+            
+            </p>
+        </section>
+        <section>
+            <h2>Logic Operators Part 2</h2>
+            <p>Let's do a quick recap and then we're going to see some real and more complex examples of all three logical operators.<br/>
+
+                Logical operators are used to combine two or more conditions. If you remember correctly, JavaScript includes three logical operators: || OR, && AND, ! NOT.</p>
+            <h3>AND Operator (&&)</h3>
+            <p>Double ampersand && is known as AND operator. It checks whether two operands are truthy values. And if they are truthy, it returns true, otherwise it returns false. They are often used as a condition in an if statement, so let's show that in an example.</p>
+            <i>Lets say that we want to choose which people may enter our club. To enter, they need to be cool, and they also need to be older than 18.</i>
+            <pre>
+                <code>
+                    const age = 19; // age is represented by a number
+                    const isCool = true; // isCool is represented by a boolean
+
+                    if(isCool && age > 18) { // notice how we didn't say isCool === true
+                            console.log('You may enter.');
+                    } else {
+                            console.log('You cannot enter.');
+                    }
+                </code>
+            </pre>
+            <p>isCool is true, and age is greater than the 18, that means that we're going the if block of code is going to be executed and we'll see You may enter. in the console.</p>
+            <i>We got true which is not a surprise. But now, instead of these true boolean values, let's test it with some truthy values.</i>
+            <pre>
+                <code>
+                    console.log('truthy' && 1 && 'test' && 999);
+                </code>
+            </pre>
+            <p>The AND && operator does the following:</p>
+            <ul>
+                <li>It evaluates operands from left to right.</li>
+                <li>It converts them to a boolean value.</li>
+                <li>If the result is true, it continues to the next value.</li>
+                <li>If the result is false, it stops and returns the original value of that operand.</li>
+                <li>If all operands have been evaluated to true, it returns the last operand.</li>
+            </ul>
+            <i>Now you know why 999 was returned, all the values were truthy and it was the last one on the list.<br/>
+
+                What if we change one value to be falsy?</i>
+            <pre>
+                <code>
+                    console.log('truthy' && 0 && 'test' && 999);
+                </code>
+            </pre>
+            <i>As you can see, if even one falsy value exists, it's going to stop and immediately return that value.
+
+                In other words, AND returns the first falsy value or the last truthy value if no falsy values have been found.</i>
+        
+            <h3>OR Operator (||)</h3>
+            <p>The syntax for the OR operator are two straight vertical lines ||. It checks whether any one of the two operands is a truthy value.</p>
+            <pre>
+                <code>
+                    console.log('truthy' || 0 || 'test' || 999);
+                </code>
+            </pre>
+            <p>
+                We get truthy, why is that? Well let's see how the OR operator works:<br/>
+                The OR || operator does the following:
+            </p>
+            <ul>
+                <li>For each operand, it converts it to boolean.</li>
+                <li>If the result is true, it stops and returns the original value of that operand.</li>
+                <li>If all operands have been evaluated to falsy returns the last operand.</li>
+            </ul>
+            <i>In other words, a chain of OR "||" returns the first truthy value or the last one if no truthy value is found.</i>
+            <p>So now, if we change all of the values to be falsy, it is going to return the last one:</p>
+            <pre>
+                <code>
+                    console.log('' || 0 || null || undefined);
+                </code>
+            </pre>
+            <h3>Not Operator (!)</h3>
+            <p>An exclamation sign ! is known as NOT operator. It reverses the boolean result of the condition.</p>
+            <pre>
+                <code>
+                    console.log(!true); // false
+                </code>
+            </pre>
+            <p>The operator accepts a single argument and does the following:</p>
+            <ul>
+                <li>Converts the operand to boolean type: true/false.</li>
+                <li>Returns the inverse value.</li>
+            </ul>
+            <strong>A double NOT !! is sometimes used for converting a value to boolean type:</strong><br/>
+            <p>That is, the first NOT converts the value to boolean and returns the inverse, and the second NOT inverses it again. In the end, we have a plain value-to-boolean conversion.</p>
+            <b>JavaScript is lazy. It will want to do the least amount of work possible to get its return value.<br/>
+
+                With the AND operator: JavaScript will first try to return the first falsy value. If none were found, it will return the last truthy value.<br/>
+                
+                And with the OR operator: JavaScript will first try to return the first truthy value. If none were found, it will return the last falsy value.</b>
+        </section>
+        <section>
+            <h2>Switch Statment</h2>
+            <pre>
+                <code>
+                    switch(superHero){
+                        case 'Iron Man':
+                            console.log('I am Iron Man...');
+                            break;
+                        case 'Thor':
+                            console.log('That is my hammer!');
+                            break;
+                        case 'Captain America':
+                            console.log('Nerver give up. ');
+                            break;
+                        case 'Black Widow':
+                            console.log('One shot, one kill.');
+                            break;
+                        default:
+                          console.log('Enter a valid superhero name');
+                          break;
+                    }
+                </code>
+            </pre>
+            <p>Switch statement is extremely similar to the if statement. They can be used interchangeably, but there are some situations where switch is preferred.<br/>
+                With if statements, you mostly have just a few conditions, one for the if, a few for the if else, and the final else statement.<br/>
+                If you have a larger number of conditions, you might want consider using the switch statement. Let's explore how it works.<br/>
+                The switch statement is used to perform different operations based on different conditions.<br/>
+
+            </p>
+        </section>
+        <section>
+            <h2>Ternary Operator</h2>
+            <pre>
+                <code>
+                    person.age > 18 ? console.log('You can drive') : console.log('You may not drive yet'); 
+                </code>
+            </pre>
+            <p>You could say that the switch statement is a bit more complicated version of the if statement. There's yet another version of it. It's called the ternary operator. It should be used just for the simple true or false checks.<br/>
+
+                To explain the ternary operator, let's first take a look at the syntax of a typical if statement:</p>
+            <pre>
+                <code>
+                    if (condition) {
+                        value if true;
+                    } else {
+                        value if false;
+                    }
+
+                    <i>Now, the ternary operator:</i>
+
+                    ondition ? value if true : value if false
+                </code>
+            </pre>
+            
+        </section>
+        <section>
+            <h2>Looping - While and For Loops</h2>
+            <p>Sometimes we want to repeat an action a number of times for example let’s imagine we want to display numbers form zero to nine on the console. You may be thinking doing something like that:</p>
+            <pre>
+                <code>
+                    console.log(0);
+                    console.log(1);
+                    console.log(2);
+                    console.log(3);
+                    console.log(4);
+                    console.log(5);
+                    console.log(6);
+                    console.log(7);
+                    console.log(8);
+                    console.log(9);
+                </code>
+                But that’s not a good idea at all. So instead we use for or a while loop.
+            </pre>
+            <h3>for</h3>
+            <p>It’s called a for loop because it runs “for” specific number of times. For loops are declared with three optional expressions separated by semicolons: initialization, condition and final-expression. Followed by a statement (usually a block statement).</p>
+            <pre>
+                <code>
+                    for ([initialization]; [condition]; [final-expression]){
+                        statement;
+                    }
+                    
+                </code>
+            </pre>
+            <p>The initialization statement is executed one time only before the loop starts. It is typically used to define and setup your loop variable. The condition statement is evaluated at the beginning of every loop iteration and will continue as long as it evaluates to true. When condition is false at the start of the iteration, the loop will stop executing. This means if condition starts as false, your loop will never execute. The final-expression is executed at the end of each loop iteration, prior to the next condition check and is usually used to increment or decrement your loop counter. So we already know how to use for loop let’s use it to print numbers from zero to nine:</p>
+            <pre>
+                <code>
+                    for(let i =0;i<10;i++){
+                        console.log(i);
+                    }                    
+                </code>
+            </pre>
+            <p>First we initialize our variable i=0 because we start to count from 0, “i” stand for index and it’s kind of standard for loop variable. Next we set our condition to i<10. So every time before loop execute the statement, it will check if the condition is true or in our example if variable ‘i’ is less than ten. If it’s equal or greater than 10 then condition will evaluate to false and terminate our loop. Final expression is our counter update and we set it to i++ which is shorthand for i=i+1. Each iteration i is increased by one. At the beginning we said that expressions are optional that mean we can skip parts, for example we can initialize loop variable before loop like that: </p>
+            <pre>
+                <code>
+                    let i = 0; // we have i already declared and assigned
+                    for (; i < 10; i++) { // no need for "initialization"
+                        console.log( i ); // 0, 1, 2
+                    }
+
+                   <i>We can actually remove everything, creating an infinite loop:</i> 
+                   
+                    for (;;) {
+                    // repeats without limits
+                    }
+                </code>
+            </pre>
+        
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
