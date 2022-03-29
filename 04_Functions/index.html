@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Functions</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Functions Intro</h2>
+            <p>A JavaScript function is a block of code designed to perform a particular task. Remember that, a block of code designed to perform a particular task. We will often need to perform a similar task many times in our application.</p>
+            <p>Functions are the main building blocks of the program. They allow the code to be called many times without repetition.</p>
+            <p>You've already seen a function in JavaScript. Not only that you've seen it, you've used it multiple times by now. It was the function called console.log. Console.log has a task of printing values to the console. After finishing this section, you'll be able to create your own functions as well! :) </p>
+            <p>When talking about functions, you're often going to hear two terms: function declaration and function call. So let's explain each one of these.</p>
+            <p>Function: A function is a special value with one purpose: it represents some code in your program. Functions are handy if you don’t want to write the same code many times. “Calling” a function like sayHi() tells the computer to run the code inside it and then go back to where it was in the program. There are many ways to define a function in JavaScript, with slight differences in what they do.</p>
+            <h3>Defining Functions</h3>
+            <p>A function declaration consists of the function keyword, followed by:</p>
+            <pre>
+                <code>
+                    function square(number) {
+                        return number * number;
+                    }
+                </code>
+            </pre>
+            <ul>
+                <li><b>function</b> is the reserved JavaScript keyword for creating a function.</li>
+                <li>square is the name of the function, you can name it however you'd like.</li>
+            </ul>
+            <p>... then inside of parentheses we have something known as parameters. Parameters are values we're going to send to our function when calling it. The function square takes one parameter, called number. Names of parameters do not matter, you can name them however you'd like.</p>
+            <p>The return is really important, every function needs to have it. It specifies the value that will be returned by the function. And how can we retrieve values from functions? We need to call them.</p>
+            <h3>Calling Functions</h3>
+            <p>Defining a function does not execute it. Defining it simply names the function and specifies what to do when the function is called.</p>
+            <pre>
+                <code>square(5);</code>
+            </pre>
+            <p>In here, we have the function name followed by parentheses, in parentheses, we put something known as arguments. Arguments are the values we want to fill our parameters with. For example, if we send the value of 5, the parameter called number in the function declaration is going to become number 5. Then, we multiply it by itself and return it.</p>
+            <p>We can store it in a variable. We can do that by creating a variable, in this case, we're going to call it result, and then assigning the function call to it.</p>
+            <pre>
+                <code>
+                    const result = square(5);
+                </code>
+            </pre>
+
+        </section>
+        <section>
+            <h2>Declaration and Invoking Functions</h2>
+            <p>As we learned in the last section, functions are subprograms designed to perform a particular task.</p>
+            <p>The code of the function is executed when the function is called. This is known as invoking a function. </p>
+            <p>There are a few different ways to define a function in JavaScript:</p>
+            <p>A Function Declaration defines a named function. To create a function declaration you use the function keyword followed by the name of the function.</p>
+            <pre>
+                <code>
+                    function name(parameters){
+                        statements
+                    }
+                </code>
+            </pre>
+            <p>A Function Expressions defines a named or anonymous function. An anonymous function is a function that has no name. In the example below, we are setting the anonymous function object equal to a variable.</p>
+            <pre>
+                <code>
+                    let name = function(parameters){
+                        statements
+                    }
+                </code>
+            </pre>
+            <p>An Arrow Function Expression is a shorter syntax for writing function expressions.</p>
+            <p>Arrow functions are the most modern way to create JavaScript function. For that reason, we're going to explore them in much more detail in the upcoming section! :)</p>
+            <h3>Invoking a Function</h3>
+            <p>Functions execute when they are called. This process is known as invocation. You can invoke a function by referencing the function name, followed by an open and closed parenthesis: ().</p>
+        </section>
+        <section>
+            <h2>Function Return</h2>
+            <p>Every function in JavaScript returns undefined unless otherwise specified. That means, if we don't say what do we want our function to return, it is always going to return undefined.</p>
+            <p>Let's create a function called double. It is going to take in one parameter, called number, and it is going to return that number multiplied by two. Don't worry about arrow function syntax that much, we're going to go over it in much greater detail in the next video! :)</p>
+            <pre>
+                <code>
+                    function add (a, b) {
+                        return a + b;
+                    }
+                    This is a function that will return the sum of numbers a and b. We can then invoke the function and save the return value to a variable:
+
+                    const sum = add(2, 2);
+                    When we log out our sum value, we get 4:
+
+                    console.log(sum); // 4
+                </code>
+            </pre>
+            <p>Another important rule of the return statement is that it stops function execution immediately.</p>
+            <pre>
+                <code>
+                    function test(){
+                        return true;
+                        return false;
+                    };
+                    
+                    test(); // true
+                </code>
+            </pre>
+        </section>
+        <section>
+            <h2>Arrow Functions</h2>
+            <p>They have only one difference from "normal" functions. Arrow functions do not create their own this value. "this" is a special JavaScript reserved keyword, we're going to explain it later in more detail. The only thing you should know right now, is that arrow functions do not create their own "this" value. In 99% percent of the cases we're not even going to need it, so you'll see me write arrow functions almost always!</p>
+            <pre>
+                <code>
+                    const square = (number) => {
+                        return number * number;
+                    }
+                </code>
+            </pre>
+            <p>Arrow functions also have a shorter and more concise version. Whenever we only have one return statement inside of the function and nothing else, we ran return it instantly, in one line:</p>
+            <pre>
+                <code>const square = (number) => number * number;</code>
+            </pre>
+            <p></p>
+        </section>
+        <section>
+            <h2>Parametwrs vs Arguments</h2>
+            <p>If you’re new to JavaScript, you may have heard the terms parameters and arguments used interchangeably. While very similar, there is an important distinction to make between these two keywords.</p>
+            <p><b>Parameters</b> are used when defining a function, they are the names created in the function definition. Parameter is like a variable that is only meaningful inside of this function. It won't be accessible outside of the function.</p>
+            <p><b>Arguments</b> are real values passed to the function when making a function call.</p>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="./script.js"></script>
+</body>
+</html>
