@@ -19,7 +19,7 @@ const values = [
     }
 ]
 
-// Array Methods (push, pop, shift, unshift, splice, slice)
+/**  Array Methods (push, pop, shift, unshift, splice, slice) **/
 
 const names = ['Milos', 'Bob', 'David'];
 
@@ -42,5 +42,25 @@ names.splice(2, 0, 'Jenny', 'Johny');
 
 // Array Slice - Copies certain parts of an array into a newely created array
 const noOneLikesMilos = names.slice(1); // ['Bob', 'David']
+
+/** Array ForEach **/
+
+const names = ['Milos', 'Bob', 'David'];
+
+for(let i = 0; i < names.length; i++){
+    console.log(names[i]);
+};
+
+names.forEach((name, i) => {
+    console.log(name, i);
+})
+
+const values = names.forEach((name, i) => name); // undefined
+
+let sum = 0;
+const numbers = [65, 55, 44];
+numbers.forEach((number) => {
+    sum += number;
+});
 
 

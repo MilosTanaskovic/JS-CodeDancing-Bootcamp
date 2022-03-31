@@ -204,7 +204,91 @@
             </pre>
         </section>
         <section>
-            <h2></h2>
+            <h2>Array ForEach</h2>
+            <b>What is array.forEach method?</b><br/>
+            <pre>
+                Here is a real example where array.forEach can be used.
+                <code>
+                    let sum = 0;
+                    const numbers = [65, 44, 12, 4];
+
+                    numbers.forEach((number) => {
+                        sum += item;
+                    });
+
+                    console.log(sum); // 125
+                </code>
+            </pre>
+            <p>Basically, this method performs an action for each element in the array. We can use the standard for loop to do the same, but I will explain it soon where and why to use this method.<br/>
+
+                Let's take an example - we have to log each of the values present in an array called *myArray* to the console, along with their respective indices, here's how we can do it using the standard for loop:</p>
+            <pre>
+                <code>
+                    let names = [ 'Jon', 'Jenny', 'Johnny' ];
+
+                    for (let i = 0; i < names.length; i++) {
+                        console.log(i, names[i]);
+                    }
+
+                    // 0 'Jon'
+                    // 1 'Jenny'
+                    // 2 'Johnny'
+                </code>
+            </pre>
+            <p>In this case, we have to declare and initialize another variable i and then the loop compares it every time with the array.length, if the expression evaluates to true then only the loop executes. After the loop body is executed, the value of i increments by one.<br />
+
+                We can eliminate this process using array.forEach method!</p>
+            <b>Syntax of array.forEach</b><br/>
+            <pre>
+                <code>
+                    array.forEach((value, index) => {
+                        // ...
+                    });
+                </code>
+                The first argument of the forEach method is the function that you want to execute for each element of the loop. This callback function can have three arguments. The first argument is the value of the current element the loop is on, the second argument is the index of the current value.
+
+                So, we can perform the same action using forEach in this manner:
+                <code>
+                    let names = [ 'Jon', 'Jenny', 'Johnny' ];
+
+                    names.forEach((value, index) => {
+                        console.log(value, index);
+                    });
+                </code>
+            </pre>
+            <b>Using a named function as a Callback</b><br/>
+            <pre>
+                <code>
+                    function logArrayElement(element, index) { 
+                        console.log(element, index);
+                    }
+                    
+                    myArray.forEach(logArrayElement);
+                </code>
+            </pre>
+            <b>Return value of array.forEach()</b><br/>
+            <pre>
+                This method returns undefined and this method is not chainable i.e. you can't call one method after another on an array when using forEach method, and so you cannot use cascading notation with forEach method.
+                <code>
+                    et returnValue = myArray.forEach(function (value) {
+                        console.log(value);
+                    });
+                    
+                    console.log(returnValue); // undefined
+                </code>
+                Typically, this method is used to execute side effects at the end of a chain such as logging all the elements in the array after performing a series of actions on the array.
+            </pre>
+            <b>Important remarks on the use of this method</b><br/>
+            <p>Use When</p>
+            <ol>
+                <li>Callback function is to be executed on every single element of the array.</li>
+                <li>Improve performance (provided first condition is satisfied).</li>
+            </ol>
+            <p>Don't Use When</p>
+            <ol>
+                <li>You want to stop or break the loop when some condition is true, for example, you want to console log elements of myArray but break the loop if the value of the current element is 3, then I will compulsorily have to use standard for loop to be able to do so.</li>
+                <li>The callback function is asynchronous. Instead use the standard for loop.</li>
+            </ol>
         </section>
         <section>
             <h2></h2>
