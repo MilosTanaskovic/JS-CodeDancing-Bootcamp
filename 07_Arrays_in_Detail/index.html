@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Arrays in Details</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Arrays Intro</h2>
+            <p>In programming, quite often we will need an ordered collection, where we have a 1st, 2nd, 3rd element and so on. For example, we need that to store a list of something: users, items, elements etc.<br/>
+
+                There exists a special data structure named Array, to store ordered collections.
+            </p>
+            <b>Declaration</b><br/>
+            <pre>
+                This is how we declare an array - the most important part here are the square brackets:
+                <code>
+                    const months = [ 'January', 'February', 'March', 'April' ];
+                </code>
+                Array elements are numbered, starting with zero.
+
+                We can get an element by its number in square brackets:
+                <code>
+                    console.log(months[0]); // 'January'
+                </code>
+                We can replace an element:
+                <code>
+                    months[2] = 'Not March'; // [ 'January', 'February', 'Not March', 'April' ]
+                </code>
+                …Or add a new one to the array:
+                <code>
+                    months[4] = 'May'; // [ 'January', 'February', 'March', 'April', 'May' ]
+                </code>
+                The total count of the elements in the array is its length:
+                <code>
+                    console.log(months.length); // 5
+                </code>
+                An array can store elements of any type:
+                <code>
+                    const arr = [ 
+                            'Apple', 
+                        { name: 'John' }, 
+                        true, 
+                        function() { 
+                            alert('hello'); 
+                        } 
+                    ];
+                </code>
+                You're often going to find yourself needing to loop through all the elements of an array. That's where the for loop we've learned comes in handy:
+                <code>
+                    for (let i = 0; i < months.length; i++) {
+                        console.log(carr[i]);
+                    }
+                </code>
+
+            </pre>
+        </section>
+        <section>
+            <h2>Array Methods</h2>
+            <pre>
+                <code>
+                    const names = [ 'Jon', 'Bob', 'David', 'Mark' ];
+
+                    // Array Push - Adds a new value to the end of the array.
+                    names.push('Dean');
+
+                    // Array Pop - Deletes the last element of an array
+                    names.pop();
+
+                    // Array Shift - Deletes the first element of an array
+                    names.shift();
+
+                    // Array Unshift - Adds a new value to the start of an array
+                    names.unshift('Dean');
+
+                    // Array Splice - It adds/removes values from any position of an array
+                    names.splice(2, 2);
+
+                    // Array Slice - Copies certain parts of an array into a newely created array
+                    const noOneLikesJon = names.slice(1);
+                </code>
+            </pre>
+            <p>Aside from containing variables at indexes, an array contains a variety of premade functions with which you can manipulate it's data, like adding or removing elements at certain positions! Let's take a look at a few of the most basic ones right now.</p>
+            <b>array.push(value)</b><br/>
+            <pre>
+                The array.push() function adds a new element, containing the entered variable, to the end of the array.
+                <code>
+                    const names = ["Jon", "Bob", "David", "Mark"];
+
+                    names.push("Dean");
+
+                    console.log(names); // ["Jon","Bob","David","Mark","Dean"]
+                </code>
+                There's one important thing that many experienced web developers don't know about array.push(). What's it's the return value? Many would think that the return value of the push would be an array, now including the element we've pushed. Let's test it out:
+                <code>
+                    console.log(names.push('Dean')); // 5
+                </code>
+                The return value is 5. Hmm, why 5? Think about it.
+
+                It turns out that the array.push() returns the length of the array when the element is pushed.
+
+                We can even store it in a variable:
+                <code>
+                    const length = names.push('Dean');
+
+                    console.log(length); // 5
+                </code>
+            </pre>
+
+            <b>array.pop()</b><br/>
+            <pre>
+                The array.pop() function on the other hand, does quite the opposite, deleting the last element of an array.
+                <code>
+                    const names = ["Jon", "Bob", "David", "Mark"];
+
+                    names.pop();
+
+                    *c*onsole.log(names); // ["Jon","Bob","David"]
+                </code>
+                This time, the return of the method is not the final length of the array, as it is with array.push(), rather, it's the value of the removed element. You have it in case you need it somewhere.
+                <code>
+                    const removedValue = names.pop();
+
+                    console.log(removedValue); // "Mark"
+                </code>
+                This can be great for transferring data between two arrays or just giving a value one final use before popping it into the void.
+
+            </pre>
+
+            <b>array.shift()</b><br/>
+            <pre>
+                Shift works almost exactly like pop, with one major difference. It deletes the first value in an array and moves the rest backwards!
+                <code>
+                    const names = ["Jon", "Bob", "David", "Mark"];
+
+                    names.shift();
+
+                    console.log(names); // ["Bob","David","Mark"]
+                </code>
+                It too returns the "popped" value.
+                <code>
+                    const removedValue = names.shift();
+
+                    console.log(removedValue); // "Jon"
+                </code>
+         
+            </pre>
+
+            <b>array.unshift(value)</b><br/>
+            <pre>
+                If shift is the sister function to pop, unshift is that to push. It adds a new value to the start of an array instead of the end!
+                <code>
+                    const names = ["Jon", "Bob", "David", "Mark"];
+
+                    names.unshift("Dean");
+
+                    console.log(names); // ["Dean","Jon","Bob","David","Mark"]
+                </code>
+                Much like push, it returns the new array length.
+                <code>
+                    const length = names.unshift('Dean');
+
+                    console.log(length); // 5
+                </code>
+           
+            </pre>
+
+            <b>array.splice()</b><br/>
+            <pre>
+                Now this one is a little more sophisticated, but don't worry we'll walk you through it. The splice method allows you to "splice" values into the array. It's first parameter determines where the new element or elements are placed, the second how many after that point should be deleted before placement and each subsequent condition is merely an element you wish to add. Here's an example
+                <code>
+                    const names = ["Jon", "Bob", "David", "Mark"];
+
+                    names.splice(2, 0, "Jenny", "Johnny");
+
+                    console.log(names); // ["Jon","Bob", "Jenny", "Johnny", "David","Mark"]
+                </code>
+                It can also return an array of any deleted items, like pop!
+                <code>
+                    const removedValue = names.splice(0,1);
+
+                    console.log(removedValue); // ["Jon"]
+                </code>
+        
+            </pre>
+
+            <b>array.slice()</b><br/>
+            <pre>
+                And finally, the slice function. This handy little piece of code can make a new variable that contains every element from a certain point on in whatever array you feed it!
+                <code>
+                    const names = ["Jon", "Bob", "David", "Mark"];
+
+                    const noOneLikesJon = names.slice(1);
+
+                    console.log(noOneLikesJon); // ["Bob","David","Mark"]
+                </code>
+          
+            </pre>
+        </section>
+        <section>
+            <h2></h2>
+        </section>
+        <section>
+            <h2></h2>
+        </section>
+        <section>
+            <h2></h2>
+        </section>
+        <section>
+            <h2></h2>
+        </section>
+        <section>
+            <h2></h2>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>
