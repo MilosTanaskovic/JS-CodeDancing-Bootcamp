@@ -291,10 +291,58 @@
             </ol>
         </section>
         <section>
-            <h2></h2>
+            <h2>Array Map</h2>
+            <pre>
+                <code>
+                    // A local shop's inventory
+                    const inventory = [
+                        { price: 5, name: 'eggs'  }, 
+                        { price: 5, name: 'ham'  },
+                        { price: 5, name: 'mayo'  },
+                        { price: 5, name: 'bread'  },
+                    ];
+
+                    const prices = inventory.map(item => item.price);
+
+                    console.log(prices);
+                </code>
+            </pre>
+            <p>Difference between Array.map() and Array.forEach() is that the map() method allocates memory in order to store and return values. While the forEach() method does not allocate memory so it doesn't store any returned values. In the last lecture, we saw that the array.forEach() method has a return value of undefined.</p>
+            <p>The for each method also allows for a callback function that will allow you to change the original array, while the map method will instead return a new array while leaving the original one in its original state.</p>
+            
         </section>
         <section>
-            <h2></h2>
+            <h2>Array Filter</h2>
+            <pre>
+                <code>
+                    // Filter method for Arrays
+                    const numbers = [-10, 0, -2, 15, -36, 25] // Array of postitive and negative numbers
+
+                    const positiveNumbers = numbers.filter((number) => number >= 0;
+
+                    console.log(positiveNumbers);
+
+                    // Second Example
+
+                    // A start up wants to reward the employees with 7 or more hours of overtime
+                    var employeesData = [
+                        {
+                            name: "Sebastian",
+                            overtime: 5
+                        },
+                        {
+                            name: "Cardi Vee",
+                            overtime: 10
+                        },
+                        {
+                            name: "George Lopez",
+                            overtime: 12
+                        }
+                    ];
+
+                    const employeesToReward = employeesData.filter((employee) => employee.overtime >= 7);
+                </code>
+            </pre>
         </section>
         <section>
             <h2></h2>
