@@ -345,10 +345,29 @@
             </pre>
         </section>
         <section>
-            <h2></h2>
+            <h2>Array find</h2>
+            <p>The Find method for arrays returns the first value that satisfies the condition</p>
         </section>
         <section>
-            <h2></h2>
+            <h2>Array Includes</h2>
+            <p>The array.includes() command checks if an array contains a certain value handed to it and returns "true" or "false" based on the result. For example, let's say we're a librarian looking for a particular book inside of a "bookshelf" array.</p>
+            <pre>
+                <code>
+                    var bookshelf = ["Moby Dick", "Little Women", "The Great Gatsby", "Pride And Prejudice"];
+                </code>
+                Here's the array, do note that the .includes() method is case sensitive.
+                <code>
+                    if (bookshelf.includes("Moby Dick") === true) {
+                        console.log("the book you were looking for was found");
+                    } else {
+                        console.log("couldn't find the book, sorry. :c");
+                    }
+                </code>
+                From here it scrolls through the entire array, and returns true once it finds the first instance of the value it received.
+            </pre>
+        </section>
+        <section>
+            <h2>Array Sort</h2>
         </section>
     </main>
     <script src="./script.js"></script>

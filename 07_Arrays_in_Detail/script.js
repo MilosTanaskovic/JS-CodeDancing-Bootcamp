@@ -77,38 +77,95 @@
 // console.log(prices, names);
 
 /** Array Filter **/
-const numbers = [ -10, 0, -2, 15, -36, 25];
+// const numbers = [ -10, 0, -2, 15, -36, 25];
 
-const positiveNumbers = numbers.filter((number) => {
-    return number >= 0;
-});
+// const positiveNumbers = numbers.filter((number) => {
+//     return number >= 0;
+// });
 
-console.log(positiveNumbers);
+// console.log(positiveNumbers);
 
-positiveNumbers1 = [];
-for (let i = 0; i < numbers.length; i++) {
-    if(numbers[i] >= 0){
-        positiveNumbers1.push(numbers[i]);
-    }
-}
-console.log(positiveNumbers1);
-/*
-    a start up want to reward the employees with 7 or more hours of vertime
-*/
-const employeesData = [
-    { name: 'Sebastian', overtime: 3 },
-    { name: 'Cardi Vee', overtime: 10 },
-    { name: 'George Lopez', overtime: 12 }
-]
+// positiveNumbers1 = [];
+// for (let i = 0; i < numbers.length; i++) {
+//     if(numbers[i] >= 0){
+//         positiveNumbers1.push(numbers[i]);
+//     }
+// }
+// console.log(positiveNumbers1);
+// /*
+//     a start up want to reward the employees with 7 or more hours of vertime
+// */
+// const employeesData = [
+//     { name: 'Sebastian', overtime: 3 },
+//     { name: 'Cardi Vee', overtime: 10 },
+//     { name: 'George Lopez', overtime: 12 }
+// ]
 
-const employeesToReward = employeesData.filter((employe) => {
-    //return employe.overtime >= 7;
-    //or
-    if(employe.overtime >= 7) return true;
-})
-// console.log(employeesToReward);
+// const employeesToReward = employeesData.filter((employe) => {
+//     //return employe.overtime >= 7;
+//     //or
+//     if(employe.overtime >= 7) return true;
+// })
+// // console.log(employeesToReward);
 
-const empoyeeNames = employeesToReward.map((name) => name.name);
-//console.log(empoyeeNames);
+// const empoyeeNames = employeesToReward.map((name) => name.name);
+// //console.log(empoyeeNames);
 
-empoyeeNames.forEach((name) => console.log(`${name} received a reward!`));
+// empoyeeNames.forEach((name) => console.log(`${name} received a reward!`));
+
+/** Array Find  */
+
+// const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// const value = numbers.find((number) => number > 5); // 6 > 5 true -> value = 6
+
+// const states = ['Alaska', 'California', 'Colorado', 'Hawaii'];
+
+// const state = states.find((state) => state.startsWith('C')); // California - true
+
+/** Array Includes */
+// const array1 = [1, 2, 3];
+
+// console.log(array1.includes(1)); // true
+
+// const pets = ['cat', 'dog'];
+
+// console.log(pets.includes('at')); // false
+
+// const bookshelf = ['Moby Dick', 'The Great Gatsby'];
+
+// if(bookshelf.includes("Mob Dick") === true) {
+//     console.log('we have a book'); // true
+// } else {
+
+// }
+
+// if(bookshelf.includes("mob dick") === true) {
+//     console.log('we have a book');
+// } else {
+//  // false
+// }
+
+// if(bookshelf.includes("Mob Dick")) {  // truthy value is includes method
+//     console.log('we have a book'); // true
+// } else {
+
+// }
+
+/** Array Sort */
+
+const names = ['Anne', 'Carl', 'Bob', 'Dean'];
+
+const numbers = [1, 4, 15, 33, 2];
+
+numbers.sort(); // 1 , 15 , 2 ...
+
+// asceding Order
+numbers.sort((a, b) => a - b); 
+// Descending Order
+numbers.sort((a, b) => b - a); 
+
+names.sort(); // changed original array
+
+
+
