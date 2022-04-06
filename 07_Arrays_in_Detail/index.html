@@ -369,6 +369,139 @@
         <section>
             <h2>Array Sort</h2>
         </section>
+        <section>
+            <h2>Array Some & Every</h2>
+            <p>Array Some -> returns true if at least one element passes the test</p>
+            <p>Array Every -> returns true only if all elements pass the test</p>
+        </section>
+        <section>
+            <h2>Array Reduce</h2>
+            <p>Array reduce starts with all the elements from an array, iterates over them and computes them to a single value.</p>
+            <pre>
+                It's one of the hardest array methods to understand. So let's take it slow, with a real-life example. Let's say that we have a grocery list with all the groceries we want to buy as well as their prices.
+
+                    <code>const groceryList = [29, 12, 45, 35, 87, 110];</code>
+                The thing that we want to know is the total price of all of the items. This would be a perfect example for the reduce method.
+
+                Here's the challenge for you. Pause the video and try to solve this with a forEach loop.
+
+                The solution would look something like this:
+
+                    <code>
+                        const groceryItems = [29, 12, 45, 35, 87, 110];
+                        let total = 0;
+
+                        groceryItems.forEach((item) => total += item);
+
+                        console.log(total); 
+                    </code>
+
+                
+                As you can see, there's a need for an external variable called total that is going to keep track of the total price. It does work, but it's not the best way to do it.
+
+                Now, let me should you the reduce method which is going to remove the need for the external variable.
+
+                    <code> 
+                        const groceryItems = [29, 12, 45, 35, 87, 110];
+                        const total = groceryItems.reduce((accumulator, currentValue) => {
+                            return accumulator + currentValue;
+                        }, 0);
+        
+                        console.log(total);
+                    </code>                
+            </pre>
+            <p>The reduce method takes 2 parameters: accumulator and currentValue.</p>
+            <p>Accumulator is something that we initialise, then the callback function is executed many times, in each time the currentValue will be set to one element of the array, so in each call the current value is added to the accumulator.</p>
+            <p>The reduce method takes two arguments, the first one is the callback function that runs for the each element in the array and the second one is the initial value of the accumulator.</p>
+            <p>The result of the reducer method is always going to be a single value. In this example, that value is the total all item prices.</p>
+            <pre>
+                Calculate the sum of numbers in an array
+
+                For example, shopping cart sum.
+
+                <code>
+                    const numbers = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+
+                    const sum = numbers.reduce((accumulator, currentValue) => {
+                        return accumulator + currentValue;
+                    }, 0);
+
+                    console.log(sum);
+                </code>
+
+                callback function with two parameters (accumulator, currentValue);
+
+                we need to initialize accumulator to 0, we pass it as a second argument.
+
+                finally, we get a result as a single value.
+
+                What exactly is happening here?
+
+                <code>
+                    const numbers = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+
+                    // a = 0, c = 1 => a = 1
+                    // a = 1, c = 2 => a = 3
+                    // a = 3, c = 3 => a = 6
+                    // ...
+
+                    const sum = numbers.reduce((accumulator, currentValue) => {
+                        return accumulator + currentValue;
+                    }, 0);
+
+                    console.log(sum);
+                </code>
+
+                Essentially, we start with an accumulator, we loop through an array, we convert all the elements to a single value, in this case, a sum of all the values,
+
+                We can also remove the accumulator, 0, the accumulator now starts from the first value.
+
+                <code>
+                    const numbers = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+
+                    // a = 1, c = 2 => a = 3;
+                    // a = 3, c = 3 => a = 6;
+
+                    const sum = numbers.reduce((accumulator, currentValue) => {
+                        return accumulator + currentValue;
+                    });
+
+                    console.log(sum);
+                    ES6 instant return
+
+                    const numbers = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+
+                    const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue);
+
+                    console.log(sum);
+                    const values = [ 5, 2, 3, 1, 2 ];
+
+                    let sum = 0;
+
+                    for(let i = 0; i < values.length; i += 1){
+                        sum += values[i];
+                    }
+
+                    console.log(sum);
+                </code>
+                
+                Now, let's change the name of the sum variable to be acc.
+
+                Accumulator starts with 0 and then every value is added to it over and over again. This is the idea of reduce.
+
+                Now, looking at this code:
+
+                <code>
+                    const values = [ 5, 2, 3, 1, 2 ];
+
+                    const sum = numbers.reduce((accumulator, currentValue) => {
+                        return accumulator + currentValue;
+                    });
+
+                    console.log(sum);
+                </code>
+            </pre>
+        </section>
     </main>
     <script src="./script.js"></script>
 </body>

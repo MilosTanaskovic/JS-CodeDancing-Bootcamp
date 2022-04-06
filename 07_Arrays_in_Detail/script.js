@@ -152,20 +152,65 @@
 
 // }
 
-/** Array Sort */
+// /** Array Sort */
 
-const names = ['Anne', 'Carl', 'Bob', 'Dean'];
+// const names = ['Anne', 'Carl', 'Bob', 'Dean'];
 
-const numbers = [1, 4, 15, 33, 2];
+// const numbers = [1, 4, 15, 33, 2];
 
-numbers.sort(); // 1 , 15 , 2 ...
+// numbers.sort(); // 1 , 15 , 2 ...
 
-// asceding Order
-numbers.sort((a, b) => a - b); 
-// Descending Order
-numbers.sort((a, b) => b - a); 
+// // asceding Order
+// numbers.sort((a, b) => a - b); 
+// // Descending Order
+// numbers.sort((a, b) => b - a); 
 
-names.sort(); // changed original array
+// names.sort(); // changed original array
+
+/** Array Some & Every */
+// const array = [1, 2, 3, 4, 5];
+
+// // Array Some -> return true if at least one element passes the test
+// const greaterThen3  = (number) => number > 3;
+
+// console.log(array.some(greaterThen3)); // true
+
+// // or
+// console.log(array.some((el) => el > 5)); // false
+
+// // Array Every -> return true if all elements pass the test
+// console.log(array.some((el) => el > 3)); // false
+// console.log(array.some((el) => el > 0)); // true
+
+/** Array Reduce */
+const groceryList = [29, 12, 45, 35, 87, 110];
+
+// with forEach
+let total = 0;
+
+groceryList.forEach((price) => {
+    total += price;
+});
+
+// with Reduce
+const total = groceryList.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+}, 0);
+
+console.log(total);
+
+const numbers = [1, 2, 3, 4, 5];
+
+const sum = numbers.reduce((acc, val) => {
+    return acc + val;
+}, 0);
+
+// acc = 0, val = 1 => 0 + 1 === 1
+// acc = 1, val = 2 => 1 + 2 === 3
+// acc = 3, val = 3 => 3 + 3 === 6
+// acc = 6, val = 4 => 6 + 4 === 10
+// acc = 10, val = 5 => 10 + 5 === 15
+// sum = 15
 
 
 
